@@ -20,52 +20,51 @@ export const Auth = () => {
         .mutateAsync({
           email: email,
           password: pw,
-      })
-      .then(() =>
-        loginMutation.mutate({
-          email: email,
-          password: pw,
         })
-      )
+        .then(() =>
+          loginMutation.mutate({
+            email: email,
+            password: pw,
+          })
+        )
     }
   }
-
   return (
     <div className="flex justify-center items-center flex-col min-h-screen text-gray-600 font-mono">
       <div className="flex items-center">
         <CheckBadgeIcon className="h-8 w-8 mr-2 text-blue-500" />
         <span className="text-center text-3xl font-extrabold">
-          Todo app by React/Go (Echo)
+          Todo app by React/Go(Echo)
         </span>
       </div>
       <h2 className="my-6">{isLogin ? 'Login' : 'Create a new account'}</h2>
       <form onSubmit={submitAuthHandler}>
         <div>
           <input
-            className='mb-3 px-3 text-sm py-2 border border-gray-300'
-            name='email'
-            type='email'
+            className="mb-3 px-3 text-sm py-2 border border-gray-300"
+            name="email"
+            type="email"
             autoFocus
-            placeholder='Email address'
+            placeholder="Email address"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            />
+          />
         </div>
         <div>
           <input
-            className='mb-3 px-3 text-sm py-2 border border-gray-300'
-            name='password'
-            type='password'
-            placeholder='Password'
+            className="mb-3 px-3 text-sm py-2 border border-gray-300"
+            name="password"
+            type="password"
+            placeholder="Password"
             onChange={(e) => setPw(e.target.value)}
             value={pw}
-            />
+          />
         </div>
-        <div className='flex justify-center my-2'>
+        <div className="flex justify-center my-2">
           <button
-            className='disabled:opacity-40 py-2 rounded text-white bg-indigo-600'
+            className="disabled:opacity-40 py-2 px-4 rounded text-white bg-indigo-600"
             disabled={!email || !pw}
-            type='submit'
+            type="submit"
           >
             {isLogin ? 'Login' : 'Sign Up'}
           </button>
@@ -73,7 +72,7 @@ export const Auth = () => {
       </form>
       <ArrowPathIcon
         onClick={() => setIsLogin(!isLogin)}
-        className='h-6 w-6 my-2 text-blue-500 cursor-pointer'
+        className="h-6 w-6 my-2 text-blue-500 cursor-pointer"
       />
     </div>
   )

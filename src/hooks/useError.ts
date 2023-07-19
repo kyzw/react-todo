@@ -1,7 +1,7 @@
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { CsrfToken } from "../types";
-import useStore from '../store';
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { CsrfToken } from '../types'
+import useStore from '../store'
 
 export const useError = () => {
   const navigate = useNavigate()
@@ -12,7 +12,6 @@ export const useError = () => {
     )
     axios.defaults.headers.common['X-CSRF-TOKEN'] = data.csrf_token
   }
-
   const switchErrorHandling = (msg: string) => {
     switch (msg) {
       case 'invalid csrf token':
